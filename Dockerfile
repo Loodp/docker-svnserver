@@ -25,8 +25,8 @@ ADD subversion/ /etc/services.d/subversion/
 ADD sh/ /home/insetSh/
 
 # Add SVNAuth file
-ADD subversion-access-control /etc/subversion/subversion-access-control
-RUN chmod a+w /etc/subversion/* && chmod a+w /home/svn
+ADD subversion-access-control /home/svn/authz
+RUN chmod -R a+w /etc/subversion/* && chmod -R a+w /home/svn
 
 # Add WebDav configuration
 ADD dav_svn.conf /etc/apache2/conf.d/dav_svn.conf
