@@ -13,7 +13,7 @@ RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_
 
 # Add services configurations
 ADD apache/ /etc/services.d/apache/
-ADD subversion/ /etc/services.d/subversion/
+# nn ADD subversion/ /etc/services.d/subversion/
 ADD sh/ /home/insetSh/
 
 # Add SVNAuth file
