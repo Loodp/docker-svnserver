@@ -2,4 +2,4 @@
 
 # From https://github.com/smebberson/docker-alpine/tree/master/alpine-apache
 
-exec /usr/sbin/apachectl -DFOREGROUND;
+exec /usr/sbin/httpd -D FOREGROUND;
