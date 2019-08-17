@@ -1,9 +1,6 @@
 # Alpine Linux with s6 service management
 FROM smebberson/alpine-base
 
-#
-VOLUME /home
-
 	# Install Apache2 and other stuff needed to access svn via WebDav
 	# Install svn
 	# Installing utilities for SVNADMIN frontend
@@ -40,3 +37,9 @@ ENV HOME /home
 
 # Expose ports for http and custom protocol access
 EXPOSE 80 443 3690
+
+
+#
+VOLUME /home/svn
+VOLUME /home/conf
+VOLUME /home/tools
