@@ -14,7 +14,9 @@ RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_
 	mkdir -p /run/apache2/ &&\
 	mkdir /home/svn/ &&\
 	mkdir /etc/subversion &&\
-	touch /etc/subversion/passwd
+	touch /etc/subversion/passwd &&\
+	mkdir /home/conf &&\
+	mkdir /home/tools
 
 # Add services configurations
 ADD apache/ /etc/services.d/apache/
@@ -27,6 +29,9 @@ RUN chmod a+w /etc/subversion/* && chmod a+w /home/svn
 # Add WebDav configuration
 ADD dav_svn.conf /etc/apache2/conf.d/dav_svn.conf
 
+# add ln conf to home
+RUN ln -s /etc/subversion/subversion-access-control /home/conf/subversion-access-control
+
 # Set HOME in non /root folder
 ENV HOME /home
 
@@ -34,4 +39,4 @@ ENV HOME /home
 EXPOSE 80 443 3690
 
 #
-VOLUME /home/svn
+VOLUME /home
