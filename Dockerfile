@@ -8,7 +8,8 @@ FROM smebberson/alpine-base
 	# Create the authentication file for http access
 	# Getting SVNADMIN interface
 RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_svn apr apr-util &&\
-	mkdir -p /run/apache2/
+	mkdir -p /run/apache2/ &&\
+	mkdir -p /home/svn
 
 # Add services configurations
 ADD apache/ /etc/services.d/apache/
