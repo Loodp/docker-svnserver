@@ -6,20 +6,7 @@ FROM alpine:3.7
 # Using building block from
 #   https://github.com/dweomer/dockerfiles-saslauthd
 #
-RUN set -x && \
-    export BUILD_DEPS="\
-        autoconf automake make \
-        curl \
-        db-dev \
-        g++ gcc \
-        gzip \
-        heimdal-dev \
-        libtool \
-        openldap-dev \
-        tar" && \
-    apk add --update ${BUILD_DEPS} cyrus-sasl libldap && \
-    apk del --purge ${BUILD_DEPS} && \
-    rm -fr /src /tmp/* /var/tmp/* /var/cache/apk/*
+RUN rm -fr /src /tmp/* /var/tmp/* /var/cache/apk/*
 
 # Install Apache2 and other stuff needed to access svn via WebDav
 # Install svn
