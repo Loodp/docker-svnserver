@@ -1,11 +1,7 @@
 # Alpine Linux with s6 service management
 FROM alpine:3.7
 
-# Alpine cyrus-sasl doesn't support LDAP
-#   https://pkgs.alpinelinux.org/package/edge/main/x86_64/cyrus-sasl
-# Using building block from
-#   https://github.com/dweomer/dockerfiles-saslauthd
-#
+# 
 RUN rm -fr /src /tmp/* /var/tmp/* /var/cache/apk/*
 
 # Install Apache2 and other stuff needed to access svn via WebDav
