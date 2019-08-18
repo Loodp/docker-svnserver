@@ -26,7 +26,7 @@ RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_
 RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
 
 # Add services configurations
-ADD apache/ /etc/services.d/apache/
+# ADD apache/ /etc/services.d/apache/
 ADD subversion/ /etc/services.d/subversion/
 ADD run.sh /home/inShell/run.sh
 
@@ -47,3 +47,5 @@ EXPOSE 80 443 3690
 VOLUME /home/svn
 VOLUME /home/conf
 VOLUME /home/outShell
+
+ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
