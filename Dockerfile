@@ -46,5 +46,3 @@ EXPOSE 80 443 3690
 VOLUME /home/svn
 VOLUME /home/conf
 VOLUME /home/outShell
-
-CMD ["/home/inShell/run.sh"]
