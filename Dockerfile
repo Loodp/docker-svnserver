@@ -6,9 +6,7 @@ FROM alpine:3.7
 # Using building block from
 #   https://github.com/dweomer/dockerfiles-saslauthd
 #
-ENV CYRUS_SASL_VERSION=2.1.26
 RUN set -x && \
-    mkdir -p /srv/saslauthd.d /tmp/cyrus-sasl /var/run/saslauthd && \
     export BUILD_DEPS="\
         autoconf automake make \
         curl \
@@ -20,34 +18,6 @@ RUN set -x && \
         openldap-dev \
         tar" && \
     apk add --update ${BUILD_DEPS} cyrus-sasl libldap && \
-    curl -fL ftp://ftp.cyrusimap.org/cyrus-sasl/cyrus-sasl-${CYRUS_SASL_VERSION}.tar.gz -o /tmp/cyrus-sasl.tgz && \
-    curl -fL http://git.alpinelinux.org/cgit/aports/plain/main/cyrus-sasl/cyrus-sasl-2.1.25-avoid_pic_overwrite.patch?h=3.2-stable -o /tmp/cyrus-sasl-2.1.25-avoid_pic_overwrite.patch && \
-    curl -fL http://git.alpinelinux.org/cgit/aports/plain/main/cyrus-sasl/cyrus-sasl-2.1.26-size_t.patch?h=3.2-stable -o /tmp/cyrus-sasl-2.1.26-size_t.patch && \
-    curl -fL http://git.alpinelinux.org/cgit/aports/plain/main/cyrus-sasl/CVE-2013-4122.patch?h=3.2-stable -o /tmp/CVE-2013-4122.patch && \
-    tar -xzf /tmp/cyrus-sasl.tgz --strip=1 -C /tmp/cyrus-sasl && \
-    cd /tmp/cyrus-sasl && \
-    patch -p1 -i /tmp/cyrus-sasl-2.1.25-avoid_pic_overwrite.patch || true && \
-    patch -p1 -i /tmp/cyrus-sasl-2.1.26-size_t.patch || true && \
-    patch -p1 -i /tmp/CVE-2013-4122.patch || true && \
-    ./configure \
-        --prefix=/usr \
-        --sysconfdir=/etc \
-        --localstatedir=/var \
-        --disable-anon \
-        --enable-cram \
-        --enable-digest \
-        --enable-ldapdb \
-        --enable-login \
-        --enable-ntlm \
-        --disable-otp \
-        --enable-plain \
-        --with-gss_impl=heimdal \
-        --with-devrandom=/dev/urandom \
-        --with-ldap=/usr \
-        --with-saslauthd=/var/run/saslauthd \
-        --mandir=/usr/share/man && \
-    make -j1 && \
-    make -j1 install && \
     apk del --purge ${BUILD_DEPS} && \
     rm -fr /src /tmp/* /var/tmp/* /var/cache/apk/*
 
