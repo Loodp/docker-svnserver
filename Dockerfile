@@ -22,6 +22,9 @@ RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_
 	mkdir /home/inShell &&\
     mkdir /home/outShell
 
+#ServerName
+RUN echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf
+
 # Add services configurations
 ADD apache/ /etc/services.d/apache/
 ADD subversion/ /etc/services.d/subversion/
