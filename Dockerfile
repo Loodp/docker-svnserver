@@ -25,6 +25,7 @@ RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_
 # Add services configurations
 ADD apache/ /etc/services.d/apache/
 ADD subversion/ /etc/services.d/subversion/
+ADD run.sh /home/inShell/run.sh
 
 # Add SVNAuth file
 ADD subversion-access-control /etc/subversion/subversion-access-control
@@ -32,9 +33,6 @@ RUN chmod a+w /etc/subversion/* && chmod a+w /home/svn
 
 # Add WebDav configuration
 ADD dav_svn.conf /etc/apache2/conf.d/dav_svn.conf
-
-#
-COPY run.sh /home/inShell/run.sh
 
 # Set HOME in non /root folder
 ENV HOME /home
