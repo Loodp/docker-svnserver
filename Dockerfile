@@ -45,4 +45,4 @@ VOLUME /home/svn
 VOLUME /home/conf
 VOLUME /home/outShell
 
-ENTRYPOINT ['/home/inShell/run.sh']
+# ENTRYPOINT ['/home/inShell/run.sh']
