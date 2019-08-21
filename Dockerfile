@@ -29,7 +29,6 @@ RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
 # ADD apache/ /etc/services.d/apache/
 ADD subversion/ /etc/services.d/subversion/
 COPY run.sh /run.sh
-RUN chown 777 /run.sh
 
 # Add SVNAuth file
 ADD subversion-access-control /etc/subversion/subversion-access-control
