@@ -28,7 +28,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
 # Add services configurations
 # ADD apache/ /etc/services.d/apache/
 ADD subversion/ /etc/services.d/subversion/
-ADD run.sh /home/inShell/run.sh
+ADD run.sh /run.sh
 
 # Add SVNAuth file
 ADD subversion-access-control /etc/subversion/subversion-access-control
@@ -48,5 +48,5 @@ VOLUME /home/svn
 VOLUME /home/conf
 VOLUME /home/outShell
 
-ENTRYPOINT ["/home/inShell/run.sh"]
+ENTRYPOINT ["/run.sh"]
 CMD ["httpd", "-D", "FOREGROUND"]
