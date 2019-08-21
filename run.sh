@@ -1,11 +1,6 @@
 #!/bin/bash
 set -e
 
-# return true if specified directory is empty
-function directory_empty() {
-[ -n "$(find "${1}"/ -prune -empty)" ]
-}
-
 echo Running: "$@"
 
 # move file
