@@ -49,5 +49,5 @@ VOLUME /home/conf
 VOLUME /home/outShell
 
 ENTRYPOINT ["/run.sh"]
-CMD ["httpd", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 # ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
