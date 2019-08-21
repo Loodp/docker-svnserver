@@ -8,7 +8,7 @@ echo Running: "$@"
 # ln -s /home/conf/subversion-access-control /etc/subversion/subversion-access-control
 
 # start svn
-sudo /usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690
+# /usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690
 
 # fallthrough...
 exec "$@"
