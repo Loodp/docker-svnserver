@@ -48,4 +48,5 @@ VOLUME /home/svn
 VOLUME /home/conf
 VOLUME /home/outShell
 
-ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
+ENTRYPOINT ["/home/inShell/run.sh"]
+CMD ["httpd", "-D", "FOREGROUND"]
