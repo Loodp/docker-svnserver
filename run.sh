@@ -21,7 +21,7 @@ rm -f /var/log/apache2/error.log
 rm -f /var/log/apache2/access.log
 rm -f /var/log/apache2/subversion.log
 
-# httpd -k start
+httpd -k start
 
 # fallthrough...
 exec httpd -D FOREGROUND
