@@ -8,7 +8,11 @@ echo Running: "$@"
 # ln -s /home/conf/subversion-access-control /etc/subversion/subversion-access-control
 
 # start svn
-# /usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690
+count=`ps -ef |grep svnserve |grep -v "grep" |wc -l`
+#echo $count
+if [ 0 == $count ];then
+/usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690
+fi
 
 ###
 ### Start apache...
