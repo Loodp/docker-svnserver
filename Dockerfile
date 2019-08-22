@@ -31,7 +31,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
 COPY run.sh /
 
 # Add SVNAuth file
-ADD subversion-access-control /etc/subversion/subversion-access-control
+ADD subversion-access-control /etc/subversion/subversion-access-control-temp
 RUN chmod a+w /etc/subversion/* && chmod a+w /home/svn
 
 # Add WebDav configuration
