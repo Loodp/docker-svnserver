@@ -9,10 +9,11 @@ echo Running: "$@"
 
 # start svn
 count=`ps -ef |grep svnserve |grep -v "grep" |wc -l`
+echo $count
 #echo $count
-#if [ 0 == $count ];then
-#/usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690
-#fi
+if [ 0 == $count ];then
+/usr/bin/svnserve -d -r /home/svn --listen-port 3690
+fi
 
 ###
 ### Start apache...
