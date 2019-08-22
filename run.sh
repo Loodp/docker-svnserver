@@ -11,7 +11,7 @@ echo Running: "$@"
 count=`ps -ef |grep svnserve |grep -v "grep" |wc -l`
 #echo $count
 if [ 0 == $count ];then
-/usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690
+#/usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690
 fi
 
 ###
@@ -21,7 +21,7 @@ rm -f /var/log/apache2/error.log
 rm -f /var/log/apache2/access.log
 rm -f /var/log/apache2/subversion.log
 
-httpd -k start
+#httpd -k start
 
 # fallthrough...
 exec httpd -D FOREGROUND
