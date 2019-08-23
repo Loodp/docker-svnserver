@@ -19,15 +19,11 @@ RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_
 	mkdir /etc/subversion &&\
 	touch /etc/subversion/passwd &&\
 	mkdir /home/conf &&\
-	mkdir /home/inShell &&\
-    mkdir /home/outShell
 
 #ServerName
 RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
 
 # Add services configurations
-# ADD apache/ /etc/services.d/apache/
-# ADD subversion/ /etc/services.d/subversion/
 COPY run.sh /
 
 # Add SVNAuth file
@@ -46,8 +42,6 @@ EXPOSE 80 443 3690
 #
 VOLUME /home/svn
 VOLUME /home/conf
-VOLUME /home/outShell
 
 ENTRYPOINT ["sh", "/run.sh"]
 CMD ["httpd", "-D", "FOREGROUND"]
-# ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
