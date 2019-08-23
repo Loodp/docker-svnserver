@@ -1,4 +1,7 @@
-# 构建docker下 svn+apache 服务
+
+## 描述
+本来想弄个svn仓库迁移，之前是docker+centos+apache+svn，非常麻烦，故学习了下，大开眼界。本hub主要为了记录下方便之后使用，需要的同学自行使用，有问题共同探讨哈。顺便一提，github+dockerhub确实很好用，实时上传+building。
+基于Alpine 3.7，轻量级，只有几十M，内置httpd+svnserve，可以在容器启动同时自启，没有其它的冗余，比较基础，可以根据自身条件进行调整，个人感觉比较适合个人使用。
 
 ## 运行命令
 ```shell
@@ -42,6 +45,9 @@ The following repository back-end (FS) modules are available:
 * fs_base : Module for working with a Berkeley DB repository.
 
 ```
+
+## VOLUME
+简单提下，```/home/svn```是在参考仓库中就带的，但是考虑容器内编辑authz文件会比较费劲，所以在run.sh中加了软链，在执行```docker run```时可以加上```-v <hostpath>:/home/conf```，此处会将subversion-access-control文件copy到目录内，可以在主机内编辑，并且同时在容器内生效。
 
 
 主要参考项目：
