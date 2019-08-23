@@ -1,3 +1,4 @@
+[![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://cloud.docker.com/u/loodp/repository/docker/loodp/svn-server)
 
 ## 描述
 本来想弄个svn仓库迁移，之前是docker+centos+apache+svn，非常麻烦，故学习了下，大开眼界。本hub主要为了记录下方便之后使用，需要的同学自行使用，有问题共同探讨哈。顺便一提，github+dockerhub确实很好用，实时上传+building。
