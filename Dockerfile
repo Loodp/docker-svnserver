@@ -18,7 +18,7 @@ RUN apk add --no-cache apache2 apache2-ctl apache2-utils apache2-webdav mod_dav_
 	mkdir /home/svn/ &&\
 	mkdir /etc/subversion &&\
 	touch /etc/subversion/passwd &&\
-	mkdir /home/conf &&\
+	mkdir /home/conf
 
 #ServerName
 RUN echo "ServerName localhost" >> /etc/apache2/httpd.conf
