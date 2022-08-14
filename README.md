@@ -1,8 +1,8 @@
 [![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://cloud.docker.com/u/loodp/repository/docker/loodp/svn-server)
 
 ## 描述
-本来想弄个svn仓库迁移，之前是docker+centos+apache+svn，非常麻烦，故学习了下，大开眼界。本hub主要为了记录下方便之后使用，需要的同学自行使用，有问题共同探讨哈。顺便一提，github+dockerhub确实很好用，实时上传+building。
-基于Alpine 3.7，轻量级，只有几十M，内置httpd+svnserve，可以在容器启动同时自启，没有其它的冗余，比较基础，可以根据自身条件进行调整，个人感觉比较适合个人使用。
+github+dockerhub确实很好用，实时上传+building。
+基于Alpine 3.7，轻量级，只有几十M，内置httpd+svnserve，可以在容器启动同时自启，没有其它的冗余，比较基础，可以根据自身条件进行调整。
 
 ## 运行命令
 ```shell
