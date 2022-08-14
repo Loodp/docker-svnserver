@@ -22,7 +22,7 @@
 
 ## run.sh
 
-本人shell小白，sh脚本编写比较烂，脚本简单实现了svnserve、httpd的开机自启，subversion-access-control文件的软链，有需要的同学自行调整下
+脚本简单实现了svnserve、httpd的开机自启，subversion-access-control文件的软链，有需要的自行调整下
 
 ## 版本信息
 ```shell
@@ -51,10 +51,8 @@ The following repository back-end (FS) modules are available:
 简单提下，```/home/svn```是在参考仓库中就带的，但是考虑容器内编辑authz文件会比较费劲，所以在run.sh中加了软链，在执行```docker run```时可以加上```-v <hostpath>:/home/conf```，此处会将subversion-access-control文件copy到目录内，可以在主机内编辑，并且同时在容器内生效。
 
 
-主要参考项目：
+参考项目：
 
 https://github.com/elleFlorio/svn-docker
 
 https://github.com/iaean/docker-subversion
-
-欢迎各位指正批评
